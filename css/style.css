@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Sintony:wght@400;700&display=swap");
+
+:root {
+  --black: #000;
+  --white: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,13 +12,67 @@
 }
 
 body {
+  font-family: "Sintony";
   background-color: grey;
 }
 
-header {
+header nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 1rem 3rem 1rem 3rem;
-  background-color: #fff;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: var(--white);
+}
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 44%;
+}
+
+ul li a {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hamburger {
+  font-size: 30px;
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .hamburger {
+    display: flex;
+    cursor: pointer;
+  }
+
+  ul {
+    display: none;
+  }
+  .toggle_active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    height: 270px;
+    width: 100%;
+    gap: 2rem;
+    background-color: var(--white);
+    animation: toggleAnimation 0.5s ease-in-out; /* Changed to a more appropriate animation property */
+  }
+}
+
+@keyframes toggleAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
